@@ -4,7 +4,7 @@ body {
   font-family: $font-family-base;
   font-size: $font-size-14;
   font-weight: $font-weight-regular;
-  line-height: 1.4;
+  line-height: $line-height-base;
   letter-spacing: $letter-spacing;
   color: $color-text-primary;
 }

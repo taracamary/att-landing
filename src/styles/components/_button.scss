@@ -30,3 +30,17 @@
     color: $color-white;
   }
 }
+
+.button--primary {
+  padding: rem(8) rem(24);
+  border: $border-width-cta solid transparent;
+  background-color: $color-accent;
+  color: $color-white;
+  font-size: $font-size-18;
+
+  @include hover {
+    border-color: $border-accent;
+    background-color: transparent;
+    color: $color-accent;
+  }
+}

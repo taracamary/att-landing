@@ -20,7 +20,7 @@ if (header && burger && mobileNav) {
     header.classList.toggle('header--expanded', isOpen);
     burger.setAttribute('aria-expanded', String(isOpen));
     burger.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
-    mobileNav.hidden = !isOpen;
+    mobileNav.setAttribute('aria-hidden', String(!isOpen));
 
     if (!isOpen) {
       closeMobileDropdowns();
