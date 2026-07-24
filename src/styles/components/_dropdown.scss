@@ -1,0 +1,142 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(6);
+  transition: color $transition-base;
+
+  @include focus-visible;
+}
+
+.dropdown__icon {
+  flex-shrink: 0;
+}
+
+.dropdown__panel {
+  position: absolute;
+  z-index: $z-dropdown;
+  inset-block-start: calc(100% + rem(6));
+  display: none;
+  background-color: $color-white;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-card;
+}
+
+.dropdown--open .dropdown__panel {
+  display: block;
+}
+
+.dropdown__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dropdown__option {
+  width: 100%;
+  padding-block: rem(4);
+  padding-inline: rem(4);
+  border: none;
+  background: none;
+  font-size: $font-size-14;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing;
+  text-align: start;
+  color: $color-brand;
+  cursor: pointer;
+  transition:
+    background-color $transition-base,
+    color $transition-base;
+
+  @include focus-visible;
+
+  @include hover {
+    background-color: $color-brand;
+    color: $color-white;
+  }
+}
+
+.dropdown__option--selected {
+  background-color: $color-brand;
+  color: $color-white;
+}
+
+.dropdown--currency,
+.dropdown--language {
+  .dropdown__panel {
+    inset-inline-start: 0;
+    min-width: rem(45);
+  }
+
+  .dropdown__icon {
+    width: rem(11);
+    height: rem(6);
+  }
+}
+
+.dropdown--contacts {
+  .dropdown__panel {
+    inset-inline-start: 0;
+    width: rem(171);
+    min-height: rem(68);
+    padding: rem(6);
+  }
+
+  .dropdown__icon {
+    width: rem(11);
+    height: rem(6);
+  }
+
+  .dropdown__phone {
+    display: inline-flex;
+    align-items: center;
+    gap: rem(8);
+    font-size: $font-size-14;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-base;
+    letter-spacing: $letter-spacing;
+    color: $color-brand;
+
+    @include hover {
+      text-decoration: underline;
+    }
+
+    @include focus-visible;
+  }
+
+  .dropdown__messengers {
+    display: flex;
+    gap: rem(10);
+    margin-block-start: rem(10);
+  }
+
+  .dropdown__messenger {
+    display: flex;
+    flex-shrink: 0;
+
+    @include focus-visible;
+  }
+
+  .dropdown__messenger-icon {
+    flex-shrink: 0;
+    width: rem(25);
+    height: rem(25);
+    color: $color-brand;
+    fill: currentColor;
+  }
+
+  .dropdown__phone-icon {
+    flex-shrink: 0;
+    width: $icon-size-sm;
+    height: $icon-size-sm;
+    fill: currentColor;
+  }
+}

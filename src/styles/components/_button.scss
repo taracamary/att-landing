@@ -1,0 +1,32 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-sm;
+  font-size: $font-size-14;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing;
+  text-transform: uppercase;
+  transition:
+    background-color $transition-base,
+    border-color $transition-base,
+    color $transition-base;
+
+  @include focus-visible;
+}
+
+.button--outline {
+  padding: rem(3) rem(6);
+  border: $border-width-cta solid $border-accent;
+  color: $color-white;
+
+  @include hover {
+    background-color: $color-accent;
+    color: $color-white;
+  }
+}

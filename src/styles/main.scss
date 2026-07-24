@@ -6,3 +6,8 @@
 @use 'abstracts/tokens';
 @use 'abstracts/functions';
 @use 'abstracts/mixins';
+
+@use 'components/button';
+@use 'components/dropdown';
+
+@use '../sections/header/header';

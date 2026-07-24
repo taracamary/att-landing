@@ -1,0 +1,52 @@
+const DESKTOP_MQ = '(min-width: 1024px)';
+
+const header = document.querySelector('.header');
+const burger = document.querySelector('.header__burger');
+const mobileNav = document.querySelector('#mobile-nav');
+
+if (header && burger && mobileNav) {
+  const closeMobileDropdowns = () => {
+    mobileNav.querySelectorAll('.dropdown--open').forEach((dropdown) => {
+      dropdown.classList.remove('dropdown--open');
+      const trigger = dropdown.querySelector('.dropdown__trigger');
+
+      if (trigger) {
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  };
+
+  const setOpen = (isOpen) => {
+    header.classList.toggle('header--expanded', isOpen);
+    burger.setAttribute('aria-expanded', String(isOpen));
+    burger.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+    mobileNav.hidden = !isOpen;
+
+    if (!isOpen) {
+      closeMobileDropdowns();
+    }
+  };
+
+  burger.addEventListener('click', () => {
+    const isOpen = burger.getAttribute('aria-expanded') !== 'true';
+    setOpen(isOpen);
+  });
+
+  const desktopMq = window.matchMedia(DESKTOP_MQ);
+
+  const handleDesktopChange = (event) => {
+    if (event.matches) {
+      setOpen(false);
+    }
+  };
+
+  if (typeof desktopMq.addEventListener === 'function') {
+    desktopMq.addEventListener('change', handleDesktopChange);
+  } else {
+    desktopMq.addListener(handleDesktopChange);
+  }
+
+  if (desktopMq.matches) {
+    setOpen(false);
+  }
+}

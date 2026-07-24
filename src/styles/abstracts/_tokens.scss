@@ -1,9 +1,47 @@
-// Colors
-$color-text-primary: #233849;
+@use './functions' as *;
 
-// Typography
-$font-family-base: 'Poppins', sans-serif;
+// Color pallet
+$color-text-primary: #233849;
+$color-brand: #4d799d;
+$color-accent: #f2b124;
+$color-white: #ffffff;
+$border-accent: #f2b124;
+
+// Fonts
+$font-family-base: 'Montserrat', 'Arial', sans-serif;
+
 $font-weight-regular: 400;
-$font-size-body: 14px;
-$line-height-body: 1.4;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$font-size-14: rem(14);
+$font-size-16: rem(16);
+
+$line-height-base: normal;
+
 $letter-spacing: 0;
+
+// Design styling
+$shadow-card: 0 0 rem(5) rgba(0, 0, 0, 0.15);
+$transition-base: 200ms ease;
+
+// Media breakpoint
+$breakpoint-tablet: rem(768);
+$breakpoint-desktop: rem(1024);
+
+// Container
+$container-max: rem(1440);
+$container-padding-desktop: rem(80);
+$container-padding-tablet: rem(32);
+$container-padding-mobile: rem(16);
+
+// Borders
+$radius-sm: rem(3);
+$border-width-cta: rem(2);
+
+// Icons
+$icon-size-sm: rem(18);
+$icon-size-lg: rem(35);
+
+// Z-index
+$z-dropdown: 200;

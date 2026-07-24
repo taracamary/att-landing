@@ -1,0 +1,175 @@
+<header class="header">
+  <div class="header__inner">
+    <a class="header__logo" href="#" aria-label="Ekskursii.by — на главную">
+      <img class="header__logo-img" src="/assets/icons/logo.png" width="50" height="40" alt="" />
+    </a>
+
+    <div class="header__menu">
+      <nav class="nav nav--desktop" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="#program">Программа</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#schedule">Расписание</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#reviews">Отзывы</a>
+          </li>
+          <li class="nav__item nav__item--dropdown">
+            <div class="dropdown dropdown--contacts">
+              <button type="button" class="dropdown__trigger nav__link" aria-expanded="false" aria-haspopup="true">
+                Контакты
+                <svg class="dropdown__icon" width="11" height="6" aria-hidden="true" focusable="false">
+                  <use href="/assets/icons/sprite.svg#chevron"></use>
+                </svg>
+              </button>
+              <div class="dropdown__panel" role="region" aria-label="Контакты">
+                <a class="dropdown__phone" href="tel:+3751739444913">
+                  <svg class="dropdown__phone-icon" width="18" height="18" aria-hidden="true" focusable="false">
+                    <use href="/assets/icons/sprite.svg#phone"></use>
+                  </svg>
+                  +375 (17) 394-49-13
+                </a>
+                <div class="dropdown__messengers">
+                  <a class="dropdown__messenger" href="#" aria-label="WhatsApp" rel="noopener noreferrer">
+                    <svg class="dropdown__messenger-icon" width="25" height="25" aria-hidden="true" focusable="false">
+                      <use href="/assets/icons/sprite.svg#whatsapp"></use>
+                    </svg>
+                  </a>
+                  <a class="dropdown__messenger" href="#" aria-label="Telegram" rel="noopener noreferrer">
+                    <svg class="dropdown__messenger-icon" width="25" height="25" aria-hidden="true" focusable="false">
+                      <use href="/assets/icons/sprite.svg#telegram"></use>
+                    </svg>
+                  </a>
+                  <a class="dropdown__messenger" href="#" aria-label="Viber" rel="noopener noreferrer">
+                    <svg class="dropdown__messenger-icon" width="25" height="25" aria-hidden="true" focusable="false">
+                      <use href="/assets/icons/sprite.svg#viber"></use>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header__controls">
+        <div class="dropdown dropdown--currency">
+          <button type="button" class="dropdown__trigger" aria-expanded="false" aria-haspopup="listbox"
+            aria-label="Выбор валюты">
+            BYN
+            <svg class="dropdown__icon" width="11" height="6" aria-hidden="true" focusable="false">
+              <use href="/assets/icons/sprite.svg#chevron"></use>
+            </svg>
+          </button>
+          <div class="dropdown__panel">
+            <ul class="dropdown__list" role="listbox" aria-label="Валюта">
+              <li role="none">
+                <button type="button" class="dropdown__option dropdown__option--selected" role="option"
+                  aria-selected="true">
+                  BYN
+                </button>
+              </li>
+              <li role="none">
+                <button type="button" class="dropdown__option" role="option" aria-selected="false">
+                  RUB
+                </button>
+              </li>
+              <li role="none">
+                <button type="button" class="dropdown__option" role="option" aria-selected="false">
+                  EUR
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="dropdown dropdown--language">
+          <button type="button" class="dropdown__trigger" aria-expanded="false" aria-haspopup="listbox"
+            aria-label="Выбор языка">
+            РУС
+            <svg class="dropdown__icon" width="11" height="6" aria-hidden="true" focusable="false">
+              <use href="/assets/icons/sprite.svg#chevron"></use>
+            </svg>
+          </button>
+          <div class="dropdown__panel">
+            <ul class="dropdown__list" role="listbox" aria-label="Язык">
+              <li role="none">
+                <button type="button" class="dropdown__option dropdown__option--selected" role="option"
+                  aria-selected="true">
+                  РУС
+                </button>
+              </li>
+              <li role="none">
+                <button type="button" class="dropdown__option" role="option" aria-selected="false">
+                  ENG
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <a class="button button--outline header__book" href="#">Бронировать</a>
+      </div>
+    </div>
+
+    <button type="button" class="header__burger" aria-expanded="false" aria-controls="mobile-nav"
+      aria-label="Открыть меню">
+      <span class="header__burger-icon" aria-hidden="true">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </span>
+    </button>
+  </div>
+
+  <nav class="nav nav--mobile" id="mobile-nav" aria-label="Мобильная навигация" hidden>
+    <ul class="nav__list">
+      <li class="nav__item">
+        <a class="nav__link" href="#program">Программа</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link" href="#schedule">Расписание</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link" href="#reviews">Отзывы</a>
+      </li>
+      <li class="nav__item nav__item--dropdown">
+        <div class="dropdown dropdown--contacts">
+          <button type="button" class="dropdown__trigger nav__link" aria-expanded="false" aria-haspopup="true">
+            Контакты
+            <svg class="dropdown__icon" width="11" height="6" aria-hidden="true" focusable="false">
+              <use href="/assets/icons/sprite.svg#chevron"></use>
+            </svg>
+          </button>
+          <div class="dropdown__panel" role="region" aria-label="Контакты">
+            <a class="dropdown__phone" href="tel:+3751739444913">
+              <svg class="dropdown__phone-icon" width="18" height="18" aria-hidden="true" focusable="false">
+                <use href="/assets/icons/sprite.svg#phone"></use>
+              </svg>
+              +375 (17) 394-49-13
+            </a>
+            <div class="dropdown__messengers">
+              <a class="dropdown__messenger" href="#" aria-label="WhatsApp" rel="noopener noreferrer">
+                <svg class="dropdown__messenger-icon" width="25" height="25" aria-hidden="true" focusable="false">
+                  <use href="/assets/icons/sprite.svg#whatsapp"></use>
+                </svg>
+              </a>
+              <a class="dropdown__messenger" href="#" aria-label="Telegram" rel="noopener noreferrer">
+                <svg class="dropdown__messenger-icon" width="25" height="25" aria-hidden="true" focusable="false">
+                  <use href="/assets/icons/sprite.svg#telegram"></use>
+                </svg>
+              </a>
+              <a class="dropdown__messenger" href="#" aria-label="Viber" rel="noopener noreferrer">
+                <svg class="dropdown__messenger-icon" width="25" height="25" aria-hidden="true" focusable="false">
+                  <use href="/assets/icons/sprite.svg#viber"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>

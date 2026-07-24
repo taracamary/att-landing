@@ -1,4 +1,5 @@
 @use './tokens' as *;
+@use './functions' as *;
 
 @mixin respond-to($breakpoint) {
   @if $breakpoint == tablet {
@@ -15,7 +16,7 @@
 }
 
 @mixin hover {
-  @media (hover: hover) and (pointer: fine) {
+  @media (any-hover: hover) {
     &:hover {
       @content;
     }
@@ -31,8 +32,15 @@
   @include respond-to(tablet) {
     padding-inline: $container-padding-tablet;
   }
-  
+
   @include respond-to(desktop) {
     padding-inline: $container-padding-desktop;
+  }
+}
+
+@mixin focus-visible {
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(2);
   }
 }
