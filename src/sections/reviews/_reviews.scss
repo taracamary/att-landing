@@ -1,0 +1,253 @@
+@use '../../styles/abstracts/tokens' as *;
+@use '../../styles/abstracts/functions' as *;
+@use '../../styles/abstracts/mixins' as *;
+
+.reviews {
+  padding-block-end: rem(60);
+
+  @include respond-to(desktop) {
+    padding-block-end: rem(80);
+  }
+}
+
+.reviews__inner {
+  @include container;
+}
+
+.reviews__title {
+  margin-block-end: rem(30);
+  font-size: $font-size-27;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-base;
+  text-align: center;
+  color: $color-text-primary;
+
+  @include respond-to(desktop) {
+    margin-block-end: rem(28);
+    font-size: $font-size-30;
+  }
+}
+
+.reviews-slider {
+  position: relative;
+}
+
+.reviews-slider__viewport {
+  overflow: hidden;
+  margin: rem(-5);
+  padding: rem(5);
+}
+
+.reviews-slider__track {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(24);
+  transition: transform $transition-base;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.reviews-slider__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+
+  @include respond-to(desktop) {
+    flex-basis: calc((100% - #{rem(24)}) / 2);
+  }
+}
+
+.reviews-slider__controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: rem(6);
+  margin-block-start: rem(15);
+}
+
+.reviews-slider__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.reviews-slider__icon {
+  display: block;
+  width: rem(22);
+  height: rem(22);
+}
+
+.reviews-slider__icon--prev {
+  transform: rotate(90deg);
+}
+
+.reviews-slider__icon--next {
+  transform: rotate(-90deg);
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: rem(336);
+  padding: rem(20);
+  background-color: $color-white;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-card;
+  transition: min-height 350ms ease;
+
+  @include respond-to(desktop) {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: rem(20);
+    min-height: rem(227);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.review-card--expanded {
+  @include respond-to(desktop) {
+    min-height: rem(353);
+  }
+}
+
+.review-card__avatar {
+  flex-shrink: 0;
+  width: rem(80);
+  height: rem(80);
+  margin-block-end: rem(10);
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: $color-border;
+
+  @include respond-to(desktop) {
+    margin-block-end: 0;
+  }
+}
+
+.review-card__avatar-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.review-card__body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+
+  @include respond-to(desktop) {
+    align-items: stretch;
+  }
+}
+
+.review-card__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-block-end: rem(10);
+
+  @include respond-to(desktop) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: rem(16);
+  }
+}
+
+.review-card__author {
+  font-size: $font-size-14;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-base;
+  text-align: center;
+  color: $color-text-primary;
+
+  @include respond-to(desktop) {
+    text-align: start;
+  }
+}
+
+.review-card__city {
+  color: $color-accent;
+}
+
+.review-card__date {
+  flex-shrink: 0;
+  font-size: $font-size-14;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  color: $color-text-muted;
+}
+
+.review-card__rating {
+  display: flex;
+  gap: rem(2);
+  margin-block-end: rem(10);
+}
+
+.review-card__star {
+  display: block;
+  flex-shrink: 0;
+  width: rem(14);
+  height: rem(14);
+  color: $color-accent;
+}
+
+.review-card__star--empty {
+  color: $color-placeholder;
+}
+
+.review-card__text-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.review-card__text {
+  overflow: hidden;
+  max-height: rem(105);
+  margin-block-end: rem(4);
+  font-size: $font-size-14;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  color: $color-text-primary;
+  transition: max-height 350ms ease;
+
+  &--short {
+    max-height: none;
+    margin-block-end: 0;
+    overflow: visible;
+  }
+
+  .review-card--expanded & {
+    max-height: rem(420);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.review-card__toggle {
+  font-size: $font-size-14;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  color: $color-text-muted;
+  transition: color $transition-base;
+
+  @include focus-visible;
+
+  @include hover {
+    color: $color-accent;
+  }
+}

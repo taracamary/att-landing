@@ -42,7 +42,6 @@
   font-size: $font-size-14;
   font-weight: $font-weight-semibold;
   line-height: $line-height-base;
-  letter-spacing: $letter-spacing;
   text-align: start;
   color: $color-brand;
   cursor: pointer;
@@ -123,7 +122,6 @@
     font-size: $font-size-14;
     font-weight: $font-weight-regular;
     line-height: $line-height-base;
-    letter-spacing: $letter-spacing;
     color: $color-brand;
 
     @include hover {

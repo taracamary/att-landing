@@ -16,6 +16,26 @@
     />
   </symbol>
 
+  <symbol id="star" viewBox="0 0 14 14" fill="none">
+    <path
+      d="M6.99958 1.45837L5.21662 5.09767L1.16666 5.68494L4.1005 8.55319L3.39919 12.5417L6.99958 10.6223L10.6007 12.5417L9.90458 8.55319L12.8333 5.68494L8.80579 5.09767L6.99958 1.45837Z"
+      fill="currentColor"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linejoin="round"
+    />
+  </symbol>
+
+  <symbol id="star-empty" viewBox="0 0 14 14" fill="none">
+    <path
+      d="M6.99958 1.45837L5.21662 5.09767L1.16666 5.68494L4.1005 8.55319L3.39919 12.5417L6.99958 10.6223L10.6007 12.5417L9.90458 8.55319L12.8333 5.68494L8.80579 5.09767L6.99958 1.45837Z"
+      fill="currentColor"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linejoin="round"
+    />
+  </symbol>
+
   <symbol id="calendar" viewBox="0 0 23 23" fill="none">
     <path
       d="M18.2083 5.75H4.79167C3.73312 5.75 2.875 6.60812 2.875 7.66667V18.2083C2.875 19.2669 3.73312 20.125 4.79167 20.125H18.2083C19.2669 20.125 20.125 19.2669 20.125 18.2083V7.66667C20.125 6.60812 19.2669 5.75 18.2083 5.75Z"

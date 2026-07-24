@@ -79,7 +79,6 @@
   font-size: rem(36);
   font-weight: $font-weight-bold;
   line-height: $line-height-base;
-  letter-spacing: $letter-spacing;
   text-shadow: 1px 1px rem(3) rgba(61, 61, 61, 0.7);
 
   @include respond-to(desktop) {
@@ -93,7 +92,6 @@
   font-size: $font-size-16;
   font-weight: $font-weight-semibold;
   line-height: $line-height-base;
-  letter-spacing: $letter-spacing;
   text-shadow: 1px 1px rem(3) rgba(61, 61, 61, 0.3);
 
   @include respond-to(desktop) {

@@ -10,7 +10,6 @@
   font-size: $font-size-14;
   font-weight: $font-weight-semibold;
   line-height: $line-height-base;
-  letter-spacing: $letter-spacing;
   text-transform: uppercase;
   transition:
     background-color $transition-base,
@@ -56,5 +55,21 @@
     border-color: $color-brand;
     background-color: transparent;
     color: $color-brand;
+  }
+}
+
+.button--icon {
+  flex-shrink: 0;
+  width: rem(30);
+  height: rem(30);
+  padding: 0;
+  border: 1px solid transparent;
+  background-color: $color-accent;
+  color: $color-white;
+
+  @include hover {
+    border-color: $border-accent;
+    background-color: $color-white;
+    color: $color-accent;
   }
 }
