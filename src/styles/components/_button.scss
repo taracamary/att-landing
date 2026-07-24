@@ -44,3 +44,17 @@
     color: $color-accent;
   }
 }
+
+.button--secondary {
+  padding: rem(6) rem(24);
+  border: 1px solid transparent;
+  background-color: $color-brand;
+  color: $color-white;
+  font-size: $font-size-18;
+
+  @include hover {
+    border-color: $color-brand;
+    background-color: transparent;
+    color: $color-brand;
+  }
+}

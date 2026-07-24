@@ -1,0 +1,17 @@
+@use '../abstracts/tokens' as *;
+
+.air-datepicker {
+  --adp-font-family: #{$font-family-base};
+  --adp-font-size: #{$font-size-14};
+  --adp-z-index: #{$z-dropdown + 100};
+  --adp-border-radius: #{$radius-sm};
+  --adp-color: #{$color-text-primary};
+  --adp-accent-color: #{$color-brand};
+  --adp-color-current-date: #{$color-brand};
+  --adp-day-name-color: #{$color-accent};
+  --adp-day-name-color-hover: #{$color-brand};
+  --adp-cell-background-color-selected: #{$color-brand};
+  --adp-cell-background-color-selected-hover: #{$color-brand};
+  --adp-btn-color: #{$color-brand};
+  --adp-border-color: #{$color-border};
+}

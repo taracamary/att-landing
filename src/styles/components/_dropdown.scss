@@ -76,6 +76,33 @@
   }
 }
 
+.dropdown--field {
+  width: 100%;
+
+  .dropdown__trigger {
+    width: 100%;
+  }
+
+  .dropdown__panel {
+    inset-inline: 0;
+    inset-block-start: calc(100% + rem(4));
+    max-height: rem(200);
+    overflow-y: auto;
+    padding: rem(4);
+  }
+
+  .dropdown__icon {
+    width: rem(11);
+    height: rem(6);
+    color: $color-text-primary;
+  }
+
+  .dropdown__option {
+    font-size: $font-size-16;
+    font-weight: $font-weight-regular;
+  }
+}
+
 .dropdown--contacts {
   .dropdown__panel {
     inset-inline-start: 0;

@@ -1,0 +1,241 @@
+@use '../../styles/abstracts/tokens' as *;
+@use '../../styles/abstracts/functions' as *;
+@use '../../styles/abstracts/mixins' as *;
+
+.schedule {
+  padding-block: rem(60);
+
+  @include respond-to(desktop) {
+    padding-block: rem(80);
+  }
+}
+
+.schedule__inner {
+  @include container;
+}
+
+.schedule__title {
+  margin-block-end: rem(30);
+  font-size: $font-size-27;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing;
+  text-align: center;
+  color: $color-text-primary;
+
+  @include respond-to(desktop) {
+    font-size: $font-size-30;
+  }
+}
+
+.schedule__title-line {
+  display: block;
+}
+
+.schedule-form {
+  margin-block-end: rem(30);
+  padding: rem(30);
+  background-color: $color-white;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-form;
+}
+
+.schedule-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: rem(20);
+
+  @include respond-to(desktop) {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    gap: rem(24);
+  }
+}
+
+.schedule-form__field {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: stretch;
+  gap: rem(10);
+  min-width: 0;
+}
+
+.schedule-form__field--submit {
+  @include respond-to(desktop) {
+    flex: 1 1 0;
+  }
+}
+
+.schedule-form__label {
+  font-size: $font-size-16;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing;
+  color: $color-text-primary;
+}
+
+.schedule-form__control {
+  position: relative;
+  width: 100%;
+}
+
+.schedule-form__input,
+.schedule-form__select {
+  width: 100%;
+  height: rem(35);
+  padding-inline: rem(12);
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background-color: $color-white;
+  font-size: $font-size-18;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing;
+  color: $color-text-primary;
+
+  &::placeholder {
+    color: $color-placeholder;
+  }
+
+  @include focus-visible;
+}
+
+.schedule-form__control--date .schedule-form__input {
+  padding-inline-end: rem(35);
+}
+
+.schedule-form__select {
+  justify-content: space-between;
+  text-align: start;
+  text-transform: none;
+}
+
+.schedule-form__field .dropdown--field {
+  width: 100%;
+}
+
+.schedule-form__icon {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: rem(12);
+  display: flex;
+  color: $color-text-muted;
+  transform: translateY(-50%);
+
+  @include focus-visible;
+}
+
+.schedule-form__icon svg {
+  display: block;
+  width: rem(23);
+  height: rem(23);
+}
+
+.schedule-form__submit {
+  width: 100%;
+  height: rem(35);
+  padding-block: 0;
+  padding-inline: rem(24);
+}
+
+.schedule-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(24);
+
+  @include respond-to(desktop) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.schedule-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto 1fr auto;
+  column-gap: rem(12);
+  height: rem(103);
+  padding-block: rem(10);
+  padding-inline: rem(10);
+  background-color: $color-white;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-card;
+  color: $color-text-primary;
+
+  @include respond-to(desktop) {
+    padding-inline: rem(12) rem(10);
+  }
+}
+
+.schedule-card__info {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+  align-self: start;
+  min-width: 0;
+}
+
+.schedule-card__date {
+  font-size: $font-size-14;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing;
+  color: $color-text-primary;
+}
+
+.schedule-card__time,
+.schedule-card__seats {
+  font-size: $font-size-14;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing;
+  color: $color-black;
+}
+
+.schedule-card__price {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  font-size: $font-size-14;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing;
+  text-align: end;
+  color: $color-text-primary;
+}
+
+.schedule-card__price-part {
+  display: block;
+
+  @include respond-to(desktop) {
+    display: inline;
+  }
+}
+
+.schedule-card__action {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: end;
+  justify-self: end;
+  width: rem(112);
+  height: rem(29);
+  padding: 0;
+  font-size: $font-size-14;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  text-transform: none;
+}
+
+.schedule-card--unavailable {
+  color: $color-text-muted;
+
+  .schedule-card__date,
+  .schedule-card__time,
+  .schedule-card__seats,
+  .schedule-card__price {
+    color: $color-text-muted;
+  }
+}

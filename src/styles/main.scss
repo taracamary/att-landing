@@ -9,6 +9,8 @@
 
 @use 'components/button';
 @use 'components/dropdown';
+@use 'components/datepicker';
 
 @use '../sections/header/header';
 @use '../sections/hero/hero';
+@use '../sections/schedule/schedule';
