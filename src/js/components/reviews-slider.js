@@ -7,9 +7,11 @@ if (slider) {
   const slides = [...slider.querySelectorAll('.reviews-slider__slide')];
   const prevBtn = slider.querySelector('.reviews-slider__btn--prev');
   const nextBtn = slider.querySelector('.reviews-slider__btn--next');
+  const status = slider.querySelector('.reviews-slider__status');
   const desktopMq = window.matchMedia(DESKTOP_MQ);
 
   let index = 0;
+  let ready = false;
 
   const getVisibleCount = () => (desktopMq.matches ? 2 : 1);
 
@@ -38,13 +40,26 @@ if (slider) {
     }
   };
 
+  const announce = () => {
+    if (!status || !ready) {
+      return;
+    }
+
+    const visibleCount = getVisibleCount();
+    const start = index + 1;
+    const end = Math.min(index + visibleCount, slides.length);
+
+    status.textContent =
+      visibleCount === 1
+        ? `Отзыв ${start} из ${slides.length}`
+        : `Отзывы ${start}–${end} из ${slides.length}`;
+  };
+
   const update = () => {
     const maxIndex = getMaxIndex();
     const visibleCount = getVisibleCount();
 
-    if (index > maxIndex) {
-      index = maxIndex;
-    }
+    index = Math.min(Math.max(0, index), maxIndex);
 
     slides.forEach((slide, slideIndex) => {
       if (slideIndex < index || slideIndex >= index + visibleCount) {
@@ -59,22 +74,15 @@ if (slider) {
     track.style.transform = `translateX(-${index * getStep()}px)`;
     prevBtn.disabled = index <= 0;
     nextBtn.disabled = index >= maxIndex;
+    announce();
   };
 
   prevBtn.addEventListener('click', () => {
-    if (index <= 0) {
-      return;
-    }
-
     index -= 1;
     update();
   });
 
   nextBtn.addEventListener('click', () => {
-    if (index >= getMaxIndex()) {
-      return;
-    }
-
     index += 1;
     update();
   });
@@ -90,16 +98,6 @@ if (slider) {
       nextBtn.click();
     }
   });
-
-  const handleDesktopChange = () => {
-    update();
-  };
-
-  if (typeof desktopMq.addEventListener === 'function') {
-    desktopMq.addEventListener('change', handleDesktopChange);
-  } else {
-    desktopMq.addListener(handleDesktopChange);
-  }
 
   window.addEventListener('resize', update);
 
@@ -121,4 +119,5 @@ if (slider) {
   });
 
   update();
+  ready = true;
 }

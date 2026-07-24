@@ -32,19 +32,26 @@ if (header && burger && mobileNav) {
     setOpen(isOpen);
   });
 
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') {
+      return;
+    }
+
+    if (burger.getAttribute('aria-expanded') !== 'true') {
+      return;
+    }
+
+    setOpen(false);
+    burger.focus();
+  });
+
   const desktopMq = window.matchMedia(DESKTOP_MQ);
 
-  const handleDesktopChange = (event) => {
+  desktopMq.addEventListener('change', (event) => {
     if (event.matches) {
       setOpen(false);
     }
-  };
-
-  if (typeof desktopMq.addEventListener === 'function') {
-    desktopMq.addEventListener('change', handleDesktopChange);
-  } else {
-    desktopMq.addListener(handleDesktopChange);
-  }
+  });
 
   if (desktopMq.matches) {
     setOpen(false);

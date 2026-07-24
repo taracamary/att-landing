@@ -159,10 +159,6 @@
   border-radius: $radius-sm;
   box-shadow: $shadow-card;
   color: $color-text-primary;
-
-  @include respond-to(desktop) {
-    padding-inline: rem(12) rem(10);
-  }
 }
 
 .schedule-card__info {
