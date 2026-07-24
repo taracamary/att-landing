@@ -1,0 +1,38 @@
+@use './tokens' as *;
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (min-width: $breakpoint-tablet) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (min-width: $breakpoint-desktop) {
+      @content;
+    }
+  } @else {
+    @error 'Unknown breakpoint: #{$breakpoint}. Use tablet or desktop.';
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin container {
+  width: 100%;
+  max-width: $container-max;
+  margin-inline: auto;
+  padding-inline: $container-padding-mobile;
+
+  @include respond-to(tablet) {
+    padding-inline: $container-padding-tablet;
+  }
+  
+  @include respond-to(desktop) {
+    padding-inline: $container-padding-desktop;
+  }
+}

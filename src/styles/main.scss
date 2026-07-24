@@ -1,2 +1,8 @@
+@use 'base/fonts';
 @use 'base/normalize';
+@use 'base/typography';
 @use 'base/globals';
+
+@use 'abstracts/tokens';
+@use 'abstracts/functions';
+@use 'abstracts/mixins';

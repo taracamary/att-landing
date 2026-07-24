@@ -1,0 +1,11 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/functions' as *;
+
+body {
+  font-family: $font-family-base;
+  font-size: rem($font-size-body);
+  font-weight: $font-weight-regular;
+  line-height: $line-height-body;
+  letter-spacing: $letter-spacing;
+  color: $color-text-primary;
+}
