@@ -63,6 +63,12 @@
 
   &--currency,
   &--language {
+    .dropdown__trigger {
+      min-width: rem(52);
+      justify-content: flex-start;
+      font-variant-numeric: tabular-nums;
+    }
+
     .dropdown__panel {
       inset-inline-start: 0;
       min-width: rem(45);

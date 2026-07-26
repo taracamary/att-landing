@@ -242,13 +242,13 @@
   }
 
   &__toggle {
+    @include focus-visible;
+
     font-size: $font-size-14;
     font-weight: $font-weight-regular;
     line-height: $line-height-base;
     color: $color-text-muted;
     transition: color $transition-base;
-
-    @include focus-visible;
 
     @include hover {
       color: $color-accent;

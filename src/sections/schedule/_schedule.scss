@@ -101,6 +101,8 @@
 
   &__input,
   &__select {
+    @include focus-visible;
+
     width: 100%;
     height: rem(35);
     padding-inline: rem(12);
@@ -115,8 +117,6 @@
     &::placeholder {
       color: $color-placeholder;
     }
-
-    @include focus-visible;
   }
 
   &__select {
@@ -126,6 +126,8 @@
   }
 
   &__icon {
+    @include focus-visible;
+
     position: static;
     display: flex;
     flex-shrink: 0;
@@ -135,14 +137,12 @@
     height: rem(24);
     margin-inline-end: rem(8);
     color: $color-text-muted;
+  }
 
-    @include focus-visible;
-
-    svg {
-      display: block;
-      width: rem(23);
-      height: rem(23);
-    }
+  &__glyph {
+    display: block;
+    width: rem(23);
+    height: rem(23);
   }
 
   &__submit {

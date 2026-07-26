@@ -1,30 +1,43 @@
 <header class="header">
   <div class="header__inner">
-    <a class="header__logo" href="#" aria-label="Ekskursii.by — на главную">
+    <a class="header__logo" href="#" data-aria-label-ru="Ekskursii.by — на главную"
+      data-aria-label-en="Ekskursii.by — home" aria-label="Ekskursii.by — на главную">
       <img class="header__image" src="/assets/icons/logo-sm.png" width="50" height="40" alt="Ekskursii.by">
     </a>
 
     <div class="header__menu">
-      <nav class="nav nav--desktop" aria-label="Основная навигация">
+      <nav class="nav nav--desktop" data-aria-label-ru="Основная навигация" data-aria-label-en="Main navigation"
+        aria-label="Основная навигация">
         <ul class="nav__list">
           <li class="nav__item">
-            <a class="nav__link" href="#hero">Программа</a>
+            <a class="nav__link" href="#hero">
+              <span lang="ru">Программа</span>
+              <span lang="en">Program</span>
+            </a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="#schedule">Расписание</a>
+            <a class="nav__link" href="#schedule">
+              <span lang="ru">Расписание</span>
+              <span lang="en">Schedule</span>
+            </a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="#reviews">Отзывы</a>
+            <a class="nav__link" href="#reviews">
+              <span lang="ru">Отзывы</span>
+              <span lang="en">Reviews</span>
+            </a>
           </li>
           <li class="nav__item nav__item--dropdown">
             <div class="dropdown dropdown--contacts">
               <button type="button" class="dropdown__trigger nav__link" aria-expanded="false" aria-haspopup="true">
-                Контакты
+                <span lang="ru">Контакты</span>
+                <span lang="en">Contacts</span>
                 <svg class="dropdown__icon" width="11" height="6" aria-hidden="true" focusable="false">
                   <use href="/assets/icons/sprite.svg#chevron"></use>
                 </svg>
               </button>
-              <div class="dropdown__panel" role="region" aria-label="Контакты">
+              <div class="dropdown__panel" role="region" data-aria-label-ru="Контакты" data-aria-label-en="Contacts"
+                aria-label="Контакты">
                 <a class="dropdown__phone" href="tel:+375297566665">
                   <svg class="dropdown__mark" width="18" height="18" aria-hidden="true" focusable="false">
                     <use href="/assets/icons/sprite.svg#phone"></use>
@@ -57,27 +70,30 @@
       <div class="header__controls">
         <div class="dropdown dropdown--currency">
           <button type="button" class="dropdown__trigger" aria-expanded="false" aria-haspopup="listbox"
-            aria-label="Выбор валюты">
-            BYN
+            data-aria-label-ru="Выбор валюты" data-aria-label-en="Select currency" aria-label="Выбор валюты">
+            <span data-currency="BYN">BYN</span>
+            <span data-currency="RUB">RUB</span>
+            <span data-currency="EUR">EUR</span>
             <svg class="dropdown__icon" width="11" height="6" aria-hidden="true" focusable="false">
               <use href="/assets/icons/sprite.svg#chevron"></use>
             </svg>
           </button>
           <div class="dropdown__panel">
-            <ul class="dropdown__list" role="listbox" aria-label="Валюта">
+            <ul class="dropdown__list" role="listbox" data-aria-label-ru="Валюта" data-aria-label-en="Currency"
+              aria-label="Валюта">
               <li role="none">
-                <button type="button" class="dropdown__option dropdown__option--selected" role="option"
+                <button type="button" class="dropdown__option dropdown__option--selected" role="option" data-value="BYN"
                   aria-selected="true">
                   BYN
                 </button>
               </li>
               <li role="none">
-                <button type="button" class="dropdown__option" role="option" aria-selected="false">
+                <button type="button" class="dropdown__option" role="option" data-value="RUB" aria-selected="false">
                   RUB
                 </button>
               </li>
               <li role="none">
-                <button type="button" class="dropdown__option" role="option" aria-selected="false">
+                <button type="button" class="dropdown__option" role="option" data-value="EUR" aria-selected="false">
                   EUR
                 </button>
               </li>
@@ -87,22 +103,24 @@
 
         <div class="dropdown dropdown--language">
           <button type="button" class="dropdown__trigger" aria-expanded="false" aria-haspopup="listbox"
-            aria-label="Выбор языка">
-            РУС
+            data-aria-label-ru="Выбор языка" data-aria-label-en="Select language" aria-label="Выбор языка">
+            <span lang="ru">РУС</span>
+            <span lang="en">ENG</span>
             <svg class="dropdown__icon" width="11" height="6" aria-hidden="true" focusable="false">
               <use href="/assets/icons/sprite.svg#chevron"></use>
             </svg>
           </button>
           <div class="dropdown__panel">
-            <ul class="dropdown__list" role="listbox" aria-label="Язык">
+            <ul class="dropdown__list" role="listbox" data-aria-label-ru="Язык" data-aria-label-en="Language"
+              aria-label="Язык">
               <li role="none">
-                <button type="button" class="dropdown__option dropdown__option--selected" role="option"
+                <button type="button" class="dropdown__option dropdown__option--selected" role="option" data-value="ru"
                   aria-selected="true">
                   РУС
                 </button>
               </li>
               <li role="none">
-                <button type="button" class="dropdown__option" role="option" aria-selected="false">
+                <button type="button" class="dropdown__option" role="option" data-value="en" aria-selected="false">
                   ENG
                 </button>
               </li>
@@ -110,12 +128,16 @@
           </div>
         </div>
 
-        <a class="button button--outline header__book" href="#">Бронировать</a>
+        <a class="button button--outline header__book" href="#">
+          <span lang="ru">Бронировать</span>
+          <span lang="en">Book</span>
+        </a>
       </div>
     </div>
 
     <button type="button" class="header__burger" aria-expanded="false" aria-controls="mobile-nav"
-      aria-label="Открыть меню">
+      data-aria-label-ru="Открыть меню" data-aria-label-en="Open menu" data-aria-label-expanded-ru="Закрыть меню"
+      data-aria-label-expanded-en="Close menu" aria-label="Открыть меню">
       <span class="header__bars" aria-hidden="true">
         <span class="header__bar"></span>
         <span class="header__bar"></span>
@@ -124,26 +146,38 @@
     </button>
   </div>
 
-  <nav class="nav nav--mobile" id="mobile-nav" aria-label="Мобильная навигация" aria-hidden="true">
+  <nav class="nav nav--mobile" id="mobile-nav" data-aria-label-ru="Мобильная навигация"
+    data-aria-label-en="Mobile navigation" aria-label="Мобильная навигация" aria-hidden="true">
     <ul class="nav__list">
       <li class="nav__item">
-        <a class="nav__link" href="#hero">Программа</a>
+        <a class="nav__link" href="#hero">
+          <span lang="ru">Программа</span>
+          <span lang="en">Program</span>
+        </a>
       </li>
       <li class="nav__item">
-        <a class="nav__link" href="#schedule">Расписание</a>
+        <a class="nav__link" href="#schedule">
+          <span lang="ru">Расписание</span>
+          <span lang="en">Schedule</span>
+        </a>
       </li>
       <li class="nav__item">
-        <a class="nav__link" href="#reviews">Отзывы</a>
+        <a class="nav__link" href="#reviews">
+          <span lang="ru">Отзывы</span>
+          <span lang="en">Reviews</span>
+        </a>
       </li>
       <li class="nav__item nav__item--dropdown">
         <div class="dropdown dropdown--contacts">
           <button type="button" class="dropdown__trigger nav__link" aria-expanded="false" aria-haspopup="true">
-            Контакты
+            <span lang="ru">Контакты</span>
+            <span lang="en">Contacts</span>
             <svg class="dropdown__icon" width="11" height="6" aria-hidden="true" focusable="false">
               <use href="/assets/icons/sprite.svg#chevron"></use>
             </svg>
           </button>
-          <div class="dropdown__panel" role="region" aria-label="Контакты">
+          <div class="dropdown__panel" role="region" data-aria-label-ru="Контакты" data-aria-label-en="Contacts"
+            aria-label="Контакты">
             <a class="dropdown__phone" href="tel:+375297566665">
               <svg class="dropdown__mark" width="18" height="18" aria-hidden="true" focusable="false">
                 <use href="/assets/icons/sprite.svg#phone"></use>

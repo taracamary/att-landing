@@ -3,21 +3,21 @@
 @use '../../styles/abstracts/mixins' as *;
 
 .footer {
+  padding-block: rem(30);
   background-color: $color-brand;
   color: $color-white;
-  padding-block: rem(30);
 
   &__inner {
     @include container;
   }
 
   &__logo {
+    @include focus-visible;
+
     display: flex;
     width: rem(180);
     height: rem(40);
     margin-block-end: rem(20);
-
-    @include focus-visible;
   }
 
   &__image {
@@ -49,6 +49,7 @@
     font-size: $font-size-16;
     font-weight: $font-weight-semibold;
     line-height: $line-height-base;
+    text-transform: uppercase;
   }
 
   &__phones {
@@ -65,6 +66,8 @@
   }
 
   &__phone {
+    @include focus-visible;
+
     display: flex;
     align-items: flex-start;
     gap: rem(4);
@@ -77,8 +80,6 @@
       text-decoration: underline;
       text-underline-position: from-font;
     }
-
-    @include focus-visible;
   }
 
   &__mark {
@@ -94,6 +95,8 @@
   }
 
   &__messenger {
+    @include focus-visible;
+
     display: flex;
     flex-shrink: 0;
     width: rem(25);
@@ -110,8 +113,6 @@
       color: $color-accent;
       background-color: $color-white;
     }
-
-    @include focus-visible;
   }
 
   &__glyph {
@@ -128,6 +129,8 @@
   }
 
   &__credit {
+    @include focus-visible;
+
     display: block;
     margin-block-end: rem(10);
     font-size: $font-size-14;
@@ -139,8 +142,6 @@
       text-decoration: underline;
       text-underline-position: from-font;
     }
-
-    @include focus-visible;
 
     @include respond-to(desktop) {
       max-width: rem(518);

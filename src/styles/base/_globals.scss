@@ -62,3 +62,36 @@ fieldset {
   white-space: nowrap;
   border: 0;
 }
+
+html[lang='en'] {
+  [lang='ru'] {
+    display: none;
+  }
+}
+
+html[lang='ru'] {
+  [lang='en'] {
+    display: none;
+  }
+}
+
+html[data-currency='BYN'] {
+  [data-currency='RUB'],
+  [data-currency='EUR'] {
+    display: none;
+  }
+}
+
+html[data-currency='RUB'] {
+  [data-currency='BYN'],
+  [data-currency='EUR'] {
+    display: none;
+  }
+}
+
+html[data-currency='EUR'] {
+  [data-currency='BYN'],
+  [data-currency='RUB'] {
+    display: none;
+  }
+}

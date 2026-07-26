@@ -1,40 +1,45 @@
 # att-landing
 
-Landing page for the excursion **«Тысячелетний Брест и Брестская крепость»** (Ekskursii.by) — markup test assignment for ATT.
+A one-page landing for the excursion **“Millennium Brest and the Brest Fortress”** (Ekskursii.by)
 
-One-page layout: header, hero, schedule with search form, reviews slider, footer. Built from the Figma mockup with responsive breakpoints (mobile / tablet / desktop from 1024px).
+The page brings together the program, date search, schedule cards with booking, reviews, and contacts in one flow — from a full-bleed hero to a footer with legal information. The layout follows the Figma mockup (desktop / mobile), with tablet support and a full header from 1024px up
 
-**Live:** https://att-landing-gray.vercel.app/
+Some of the logic and JavaScript was built with AI tools
+
+## Links
+
+- **Live demo:** https://att-landing-gray.vercel.app/
+- **Figma (working Copy):** https://www.figma.com/design/BV6ObHZj2T0faV9vuyaB0Q/Test-ATT--Copy-?node-id=5-17
+- **Figma (original brief mockup):** https://www.figma.com/design/22JSTV3nXks3baQIgEnHAz/Test-ATT?node-id=16-441
 
 ## Stack
 
-- HTML5 (semantic markup, BEM)
-- SCSS + design tokens
-- Vanilla JavaScript (ES modules)
-- Vite
-- [Air Datepicker](https://air-datepicker.com/) — only third-party UI library (calendar)
+- **HTML5** — semantic markup, BEM
+- **SCSS** — design tokens, nesting, mobile-first
+- **Vanilla JavaScript** — ES modules (burger menu, dropdowns, calendar, reviews slider, language, currency)
+- **Vite** — build tool, HTML partials via includes
+- **Air Datepicker** — the only third-party UI library (date fields in the search form)
+- **Font** — Montserrat (local woff2 files)
+- **Media** — WebP + JPG via `<picture>`, SVG sprite for icons
 
-## Structure
-
-```
-src/
-  sections/     # header, hero, schedule, reviews, footer
-  styles/       # tokens, base, shared components
-  js/           # burger, dropdown, calendar, schedule-form, reviews-slider
-  assets/
-    images/     # hero + avatar (jpg/webp)
-    fonts/      # Montserrat woff2
-public/         # icons sprite, logos, favicon
-```
-
-Sections are HTML partials assembled by Vite. Styles load from `index.html`; interactivity lives in small native JS modules.
+Checked with **Lighthouse** (Desktop / Mobile) and the **[W3C Markup Validator](https://validator.w3.org/nu/)**
 
 ## Approved deviations
 
-- **Font:** Montserrat instead of Poppins — approved (web Poppins lacks Cyrillic; Montserrat is the closest available match).
-- **Language dropdown (РУС / ENG):** UI as in the mockup. Full page translate (my-portfolio CSS dual-lang pattern) — **next phase**, not in this commit.
-- **Currency dropdown (BYN / RUB / EUR):** UI only until currency conversion is implemented in the next phase.
-- **Accent contrast:** Figma gold `#f2b124` kept 1:1 for buttons, header controls, review city, etc. Lighthouse may flag WCAG contrast; pixel match to the mockup takes priority for this assignment.
+- **Font:** Montserrat instead of Poppins — the web version of Poppins has no Cyrillic. Montserrat was the closest agreed alternative
+
+## Preview
+
+![Desktop preview](./docs/desktop-preview.png)
+
+## Highlights
+
+- Layout close to Figma: header, hero, schedule, reviews, footer
+- Search form: dates (Air Datepicker), adults/children, cards with price and seat status
+- Reviews slider with expand/collapse for long text
+- Bilingual UI (RUS / ENG) and currency switch (BYN / RUB / EUR) without i18n libraries
+- Responsive: mobile → tablet → desktop
+- Accessibility: semantic HTML, focus-visible, aria for custom controls and the carousel
 
 ## Run locally
 
@@ -49,35 +54,3 @@ Open the URL shown in the terminal (usually `http://localhost:5173`).
 npm run build    # production build → dist/
 npm run preview  # preview the production build
 ```
-
-## Quality checks
-
-Checked against:
-
-1. **Lighthouse Desktop** + **Lighthouse Mobile**
-2. **[W3C Markup Validator](https://validator.w3.org/nu/)** (Nu Html Checker)
-
-### Done this iteration
-
-- **SEO:** `<meta name="description">` in `src/index.html`
-- **Media:** hero and review avatars via `<picture>` — WebP (`source`) + JPG fallback (`img`); files in `src/assets/images/`
-- **Accessibility (non-visual):** reviews slides without invalid `role="group"`; review author as `<h3>`; hit-area tweaks where layout allows
-- **Picture CSS:** BEM classes (`hero__picture`, `review-card__picture`) with `display: contents` — no global tag styles for `picture`
-- **W3C:** void elements without trailing `/` (`meta`, `img`, `input`, `source`, `hr`, …)
-- **SCSS:** section/component styles nested with BEM `&` (header, hero, schedule, reviews, footer, button, dropdown)
-- **A11y utility:** `.visually-hidden` uses `clip-path: inset(50%)` (not deprecated `clip`)
-- **CSS Validator:** 0 errors; keep optional `-webkit-text-size-adjust` for iOS (validator warning OK)
-
-### Intentionally not changed for pixel match
-
-- Accent / button / header / city colors — stay as in Figma (`#f2b124`)
-- No `robots.txt` — not required for this static landing
-- Language dropdown does not translate the page yet — next: i18n + currency (see PROJECT-AUDIT §0 / my-portfolio pattern)
-
-### Mobile
-
-![Lighthouse Mobile](./docs/lighthouse-mobile.png)
-
-### Desktop
-
-![Lighthouse Desktop](./docs/lighthouse-desktop.png)

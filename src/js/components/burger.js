@@ -16,10 +16,20 @@ if (header && burger && mobileNav) {
     });
   };
 
+  const getBurgerLabel = (isOpen) => {
+    const isRu = document.documentElement.getAttribute('lang') !== 'en';
+
+    if (isOpen) {
+      return isRu ? burger.dataset.ariaLabelExpandedRu : burger.dataset.ariaLabelExpandedEn;
+    }
+
+    return isRu ? burger.dataset.ariaLabelRu : burger.dataset.ariaLabelEn;
+  };
+
   const setOpen = (isOpen) => {
     header.classList.toggle('header--expanded', isOpen);
     burger.setAttribute('aria-expanded', String(isOpen));
-    burger.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+    burger.setAttribute('aria-label', getBurgerLabel(isOpen) || (isOpen ? 'Закрыть меню' : 'Открыть меню'));
     mobileNav.setAttribute('aria-hidden', String(!isOpen));
 
     if (isOpen) {
@@ -38,6 +48,11 @@ if (header && burger && mobileNav) {
     if (burger.getAttribute('aria-expanded') === 'true') {
       setOpen(false);
     }
+  });
+
+  window.addEventListener('att:languagechange', () => {
+    const isOpen = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-label', getBurgerLabel(isOpen) || (isOpen ? 'Закрыть меню' : 'Открыть меню'));
   });
 
   document.addEventListener('keydown', (event) => {

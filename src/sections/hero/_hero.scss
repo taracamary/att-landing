@@ -110,10 +110,10 @@
   }
 
   &__scroll {
+    @include focus-visible;
+
     display: flex;
     color: $color-white;
-
-    @include focus-visible;
   }
 
   &__chevrons {

@@ -13,6 +13,8 @@ if (slider) {
   let index = 0;
   let ready = false;
 
+  const isRu = () => document.documentElement.getAttribute('lang') !== 'en';
+
   const getVisibleCount = () => (desktopMq.matches ? 2 : 1);
 
   const getMaxIndex = () => Math.max(0, slides.length - getVisibleCount());
@@ -48,11 +50,32 @@ if (slider) {
     const visibleCount = getVisibleCount();
     const start = index + 1;
     const end = Math.min(index + visibleCount, slides.length);
+    const total = slides.length;
 
-    status.textContent =
-      visibleCount === 1
-        ? `Отзыв ${start} из ${slides.length}`
-        : `Отзывы ${start}–${end} из ${slides.length}`;
+    if (isRu()) {
+      status.textContent =
+        visibleCount === 1
+          ? `Отзыв ${start} из ${total}`
+          : `Отзывы ${start}–${end} из ${total}`;
+    } else {
+      status.textContent =
+        visibleCount === 1
+          ? `Review ${start} of ${total}`
+          : `Reviews ${start}–${end} of ${total}`;
+    }
+  };
+
+  const updateSlideLabels = () => {
+    const total = slides.length;
+
+    slides.forEach((slide, slideIndex) => {
+      const n = slideIndex + 1;
+
+      slide.setAttribute(
+        'aria-label',
+        isRu() ? `${n} из ${total}` : `${n} of ${total}`,
+      );
+    });
   };
 
   const update = () => {
@@ -101,6 +124,11 @@ if (slider) {
 
   window.addEventListener('resize', update);
 
+  window.addEventListener('att:languagechange', () => {
+    updateSlideLabels();
+    announce();
+  });
+
   slider.querySelectorAll('.review-card__toggle').forEach((toggle) => {
     toggle.addEventListener('click', () => {
       const card = toggle.closest('.review-card');
@@ -118,6 +146,7 @@ if (slider) {
     });
   });
 
+  updateSlideLabels();
   update();
   ready = true;
 }

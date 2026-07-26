@@ -56,8 +56,25 @@ if (dropdowns.length) {
 
         option.classList.add('dropdown__option--selected');
         option.setAttribute('aria-selected', 'true');
-        updateTriggerLabel(trigger, option.textContent.trim());
+
+        if (
+          !dropdown.classList.contains('dropdown--language') &&
+          !dropdown.classList.contains('dropdown--currency')
+        ) {
+          updateTriggerLabel(trigger, option.textContent.trim());
+        }
+
         setOpen(dropdown, false);
+
+        dropdown.dispatchEvent(
+          new CustomEvent('dropdown:change', {
+            bubbles: true,
+            detail: {
+              value: option.dataset.value || option.textContent.trim(),
+              option,
+            },
+          }),
+        );
       });
     });
   });
