@@ -8,27 +8,27 @@
   @include respond-to(desktop) {
     padding-block: rem(80);
   }
-}
 
-.schedule__inner {
-  @include container;
-}
-
-.schedule__title {
-  margin-block-end: rem(30);
-  font-size: $font-size-27;
-  font-weight: $font-weight-bold;
-  line-height: $line-height-base;
-  text-align: center;
-  color: $color-text-primary;
-
-  @include respond-to(desktop) {
-    font-size: $font-size-30;
+  &__inner {
+    @include container;
   }
-}
 
-.schedule__title-line {
-  display: block;
+  &__title {
+    margin-block-end: rem(30);
+    font-size: $font-size-27;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-base;
+    text-align: center;
+    color: $color-text-primary;
+
+    @include respond-to(desktop) {
+      font-size: $font-size-30;
+    }
+  }
+
+  &__title-line {
+    display: block;
+  }
 }
 
 .schedule-form {
@@ -37,120 +37,120 @@
   background-color: $color-white;
   border-radius: $radius-sm;
   box-shadow: $shadow-form;
-}
 
-.schedule-form__fields {
-  display: flex;
-  flex-direction: column;
-  gap: rem(20);
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
 
-  @include respond-to(desktop) {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: flex-end;
-    gap: rem(24);
+    @include respond-to(desktop) {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: flex-end;
+      gap: rem(24);
+    }
   }
-}
 
-.schedule-form__field {
-  display: flex;
-  flex: 1 1 0;
-  flex-direction: column;
-  align-items: stretch;
-  gap: rem(10);
-  min-width: 0;
-}
-
-.schedule-form__field--submit {
-  @include respond-to(desktop) {
+  &__field {
+    display: flex;
     flex: 1 1 0;
-  }
-}
+    flex-direction: column;
+    align-items: stretch;
+    gap: rem(10);
+    min-width: 0;
 
-.schedule-form__label {
-  font-size: $font-size-16;
-  font-weight: $font-weight-regular;
-  line-height: $line-height-base;
-  color: $color-text-primary;
-}
+    &--submit {
+      @include respond-to(desktop) {
+        flex: 1 1 0;
+      }
+    }
 
-.schedule-form__control {
-  position: relative;
-  width: 100%;
-}
-
-.schedule-form__control--date {
-  display: flex;
-  align-items: center;
-  border: 1px solid $color-border;
-  border-radius: $radius-sm;
-  background-color: $color-white;
-}
-
-.schedule-form__input,
-.schedule-form__select {
-  width: 100%;
-  height: rem(35);
-  padding-inline: rem(12);
-  border: 1px solid $color-border;
-  border-radius: $radius-sm;
-  background-color: $color-white;
-  font-size: $font-size-18;
-  font-weight: $font-weight-regular;
-  line-height: $line-height-base;
-  color: $color-text-primary;
-
-  &::placeholder {
-    color: $color-placeholder;
+    .dropdown--field {
+      width: 100%;
+    }
   }
 
-  @include focus-visible;
-}
+  &__label {
+    font-size: $font-size-16;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-base;
+    color: $color-text-primary;
+  }
 
-.schedule-form__control--date .schedule-form__input {
-  flex: 1 1 auto;
-  min-width: 0;
-  padding-inline-end: rem(4);
-  border: none;
-  border-radius: $radius-sm;
-  background: transparent;
-}
+  &__control {
+    position: relative;
+    width: 100%;
 
-.schedule-form__select {
-  justify-content: space-between;
-  text-align: start;
-  text-transform: none;
-}
+    &--date {
+      display: flex;
+      align-items: center;
+      border: 1px solid $color-border;
+      border-radius: $radius-sm;
+      background-color: $color-white;
 
-.schedule-form__field .dropdown--field {
-  width: 100%;
-}
+      .schedule-form__input {
+        flex: 1 1 auto;
+        min-width: 0;
+        padding-inline-end: rem(4);
+        border: none;
+        border-radius: $radius-sm;
+        background: transparent;
+      }
+    }
+  }
 
-.schedule-form__icon {
-  position: static;
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  width: rem(24);
-  height: rem(24);
-  margin-inline-end: rem(8);
-  color: $color-text-muted;
+  &__input,
+  &__select {
+    width: 100%;
+    height: rem(35);
+    padding-inline: rem(12);
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    background-color: $color-white;
+    font-size: $font-size-18;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-base;
+    color: $color-text-primary;
 
-  @include focus-visible;
-}
+    &::placeholder {
+      color: $color-placeholder;
+    }
 
-.schedule-form__icon svg {
-  display: block;
-  width: rem(23);
-  height: rem(23);
-}
+    @include focus-visible;
+  }
 
-.schedule-form__submit {
-  width: 100%;
-  height: rem(35);
-  padding-block: 0;
-  padding-inline: rem(24);
+  &__select {
+    justify-content: space-between;
+    text-align: start;
+    text-transform: none;
+  }
+
+  &__icon {
+    position: static;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: rem(24);
+    height: rem(24);
+    margin-inline-end: rem(8);
+    color: $color-text-muted;
+
+    @include focus-visible;
+
+    svg {
+      display: block;
+      width: rem(23);
+      height: rem(23);
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    height: rem(35);
+    padding-block: 0;
+    padding-inline: rem(24);
+  }
 }
 
 .schedule-list {
@@ -175,73 +175,73 @@
   border-radius: $radius-sm;
   box-shadow: $shadow-card;
   color: $color-text-primary;
-}
 
-.schedule-card__info {
-  grid-column: 1;
-  grid-row: 1 / -1;
-  display: flex;
-  flex-direction: column;
-  gap: rem(10);
-  align-self: start;
-  min-width: 0;
-}
-
-.schedule-card__date {
-  font-size: $font-size-14;
-  font-weight: $font-weight-semibold;
-  line-height: $line-height-base;
-  color: $color-text-primary;
-}
-
-.schedule-card__time,
-.schedule-card__seats {
-  font-size: $font-size-14;
-  font-weight: $font-weight-regular;
-  line-height: $line-height-base;
-  color: $color-black;
-}
-
-.schedule-card__price {
-  grid-column: 2;
-  grid-row: 1;
-  justify-self: end;
-  font-size: $font-size-14;
-  font-weight: $font-weight-semibold;
-  line-height: $line-height-base;
-  text-align: end;
-  color: $color-text-primary;
-}
-
-.schedule-card__price-part {
-  display: block;
-
-  @include respond-to(desktop) {
-    display: inline;
+  &__info {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+    align-self: start;
+    min-width: 0;
   }
-}
 
-.schedule-card__action {
-  grid-column: 2;
-  grid-row: 3;
-  align-self: end;
-  justify-self: end;
-  width: rem(112);
-  height: rem(29);
-  padding: 0;
-  font-size: $font-size-14;
-  font-weight: $font-weight-regular;
-  line-height: $line-height-base;
-  text-transform: none;
-}
+  &__date {
+    font-size: $font-size-14;
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-base;
+    color: $color-text-primary;
+  }
 
-.schedule-card--unavailable {
-  color: $color-text-muted;
+  &__time,
+  &__seats {
+    font-size: $font-size-14;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-base;
+    color: $color-black;
+  }
 
-  .schedule-card__date,
-  .schedule-card__time,
-  .schedule-card__seats,
-  .schedule-card__price {
+  &__price {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    font-size: $font-size-14;
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-base;
+    text-align: end;
+    color: $color-text-primary;
+  }
+
+  &__price-part {
+    display: block;
+
+    @include respond-to(desktop) {
+      display: inline;
+    }
+  }
+
+  &__action {
+    grid-column: 2;
+    grid-row: 3;
+    align-self: end;
+    justify-self: end;
+    width: rem(112);
+    height: rem(29);
+    padding: 0;
+    font-size: $font-size-14;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-base;
+    text-transform: none;
+  }
+
+  &--unavailable {
     color: $color-text-muted;
+
+    .schedule-card__date,
+    .schedule-card__time,
+    .schedule-card__seats,
+    .schedule-card__price {
+      color: $color-text-muted;
+    }
   }
 }

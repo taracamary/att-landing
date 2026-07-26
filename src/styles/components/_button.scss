@@ -17,59 +17,59 @@
     color $transition-base;
 
   @include focus-visible;
-}
 
-.button--outline {
-  padding: rem(3) rem(6);
-  border: $border-width-cta solid $border-accent;
-  color: $color-white;
+  &--outline {
+    padding: rem(3) rem(6);
+    border: $border-width-cta solid $border-accent;
+    color: $color-white;
 
-  @include hover {
+    @include hover {
+      background-color: $color-accent;
+      color: $color-white;
+    }
+  }
+
+  &--primary {
+    padding: rem(8) rem(24);
+    border: $border-width-cta solid transparent;
     background-color: $color-accent;
     color: $color-white;
+    font-size: $font-size-18;
+
+    @include hover {
+      border-color: $border-accent;
+      background-color: transparent;
+      color: $color-accent;
+    }
   }
-}
 
-.button--primary {
-  padding: rem(8) rem(24);
-  border: $border-width-cta solid transparent;
-  background-color: $color-accent;
-  color: $color-white;
-  font-size: $font-size-18;
+  &--secondary {
+    padding: rem(6) rem(24);
+    border: 1px solid transparent;
+    background-color: $color-brand;
+    color: $color-white;
+    font-size: $font-size-18;
 
-  @include hover {
-    border-color: $border-accent;
-    background-color: transparent;
-    color: $color-accent;
+    @include hover {
+      border-color: $color-brand;
+      background-color: transparent;
+      color: $color-brand;
+    }
   }
-}
 
-.button--secondary {
-  padding: rem(6) rem(24);
-  border: 1px solid transparent;
-  background-color: $color-brand;
-  color: $color-white;
-  font-size: $font-size-18;
+  &--icon {
+    flex-shrink: 0;
+    width: rem(30);
+    height: rem(30);
+    padding: 0;
+    border: 1px solid transparent;
+    background-color: $color-accent;
+    color: $color-white;
 
-  @include hover {
-    border-color: $color-brand;
-    background-color: transparent;
-    color: $color-brand;
-  }
-}
-
-.button--icon {
-  flex-shrink: 0;
-  width: rem(30);
-  height: rem(30);
-  padding: 0;
-  border: 1px solid transparent;
-  background-color: $color-accent;
-  color: $color-white;
-
-  @include hover {
-    border-color: $border-accent;
-    background-color: $color-white;
-    color: $color-accent;
+    @include hover {
+      border-color: $border-accent;
+      background-color: $color-white;
+      color: $color-accent;
+    }
   }
 }

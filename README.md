@@ -62,16 +62,16 @@ Checked against:
 - **Media:** hero and review avatars via `<picture>` — WebP (`source`) + JPG fallback (`img`); files in `src/assets/images/`
 - **Accessibility (non-visual):** reviews slides without invalid `role="group"`; review author as `<h3>`; hit-area tweaks where layout allows
 - **Picture CSS:** BEM classes (`hero__picture`, `review-card__picture`) with `display: contents` — no global tag styles for `picture`
+- **W3C:** void elements without trailing `/` (`meta`, `img`, `input`, `source`, `hr`, …)
+- **SCSS:** section/component styles nested with BEM `&` (header, hero, schedule, reviews, footer, button, dropdown)
+- **A11y utility:** `.visually-hidden` uses `clip-path: inset(50%)` (not deprecated `clip`)
+- **CSS Validator:** 0 errors; keep optional `-webkit-text-size-adjust` for iOS (validator warning OK)
 
 ### Intentionally not changed for pixel match
 
 - Accent / button / header / city colors — stay as in Figma (`#f2b124`)
 - No `robots.txt` — not required for this static landing
-
-### Next (planned)
-
-- W3C info: remove trailing slashes on void elements
-- SCSS: nest section styles with `&` (BEM nesting)
+- Language dropdown does not translate the page yet (enhancement candidate)
 
 ### Mobile
 
