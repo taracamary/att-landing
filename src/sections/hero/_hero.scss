@@ -116,13 +116,13 @@
     @include focus-visible;
   }
 
-  &__scroll-icons {
+  &__chevrons {
     position: relative;
     width: rem(24);
     height: rem(40);
   }
 
-  &__scroll-icon {
+  &__chevron {
     position: absolute;
     left: 0;
     width: rem(24);
@@ -145,7 +145,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .hero__scroll-icon {
+  .hero__chevron {
     animation: hero-scroll-pulse 1.2s ease-in-out infinite;
 
     &:nth-child(2) {

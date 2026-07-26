@@ -5,8 +5,8 @@ const burger = document.querySelector('.header__burger');
 const mobileNav = document.querySelector('#mobile-nav');
 
 if (header && burger && mobileNav) {
-  const closeMobileDropdowns = () => {
-    mobileNav.querySelectorAll('.dropdown--open').forEach((dropdown) => {
+  const closeDropdowns = (root) => {
+    root.querySelectorAll('.dropdown--open').forEach((dropdown) => {
       dropdown.classList.remove('dropdown--open');
       const trigger = dropdown.querySelector('.dropdown__trigger');
 
@@ -22,14 +22,22 @@ if (header && burger && mobileNav) {
     burger.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
     mobileNav.setAttribute('aria-hidden', String(!isOpen));
 
-    if (!isOpen) {
-      closeMobileDropdowns();
+    if (isOpen) {
+      closeDropdowns(header.querySelector('.header__controls') || header);
+    } else {
+      closeDropdowns(mobileNav);
     }
   };
 
   burger.addEventListener('click', () => {
     const isOpen = burger.getAttribute('aria-expanded') !== 'true';
     setOpen(isOpen);
+  });
+
+  window.addEventListener('header:close-mobile-nav', () => {
+    if (burger.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+    }
   });
 
   document.addEventListener('keydown', (event) => {

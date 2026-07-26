@@ -39,6 +39,10 @@ if (dropdowns.length) {
       const willOpen = !dropdown.classList.contains('dropdown--open');
       closeAll(dropdown);
       setOpen(dropdown, willOpen);
+
+      if (willOpen && dropdown.closest('.header__controls')) {
+        window.dispatchEvent(new Event('header:close-mobile-nav'));
+      }
     });
 
     dropdown.querySelectorAll('.dropdown__option').forEach((option) => {

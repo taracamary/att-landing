@@ -20,7 +20,7 @@
     @include focus-visible;
   }
 
-  &__logo-img {
+  &__image {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -44,7 +44,7 @@
     width: fit-content;
   }
 
-  &__contacts-title {
+  &__heading {
     margin-block-end: rem(10);
     font-size: $font-size-16;
     font-weight: $font-weight-semibold;
@@ -81,7 +81,7 @@
     @include focus-visible;
   }
 
-  &__phone-icon {
+  &__mark {
     flex-shrink: 0;
     width: $icon-size-sm;
     height: $icon-size-sm;
@@ -114,7 +114,7 @@
     @include focus-visible;
   }
 
-  &__messenger-icon {
+  &__glyph {
     flex-shrink: 0;
     width: rem(25);
     height: rem(25);
@@ -127,7 +127,7 @@
     }
   }
 
-  &__legal-title {
+  &__credit {
     display: block;
     margin-block-end: rem(10);
     font-size: $font-size-14;
@@ -147,7 +147,7 @@
     }
   }
 
-  &__legal-text {
+  &__note {
     font-size: $font-size-14;
     font-weight: $font-weight-regular;
     line-height: $line-height-base;

@@ -26,7 +26,7 @@
     }
   }
 
-  &__title-line {
+  &__line {
     display: block;
   }
 }
@@ -165,10 +165,10 @@
 
 .schedule-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 40%);
   grid-template-rows: auto 1fr auto;
   column-gap: rem(12);
-  height: rem(103);
+  min-height: rem(103);
   padding-block: rem(10);
   padding-inline: rem(10);
   background-color: $color-white;
@@ -204,15 +204,17 @@
   &__price {
     grid-column: 2;
     grid-row: 1;
-    justify-self: end;
+    justify-self: stretch;
+    min-width: 0;
     font-size: $font-size-14;
     font-weight: $font-weight-semibold;
     line-height: $line-height-base;
     text-align: end;
+    overflow-wrap: break-word;
     color: $color-text-primary;
   }
 
-  &__price-part {
+  &__sum {
     display: block;
 
     @include respond-to(desktop) {
@@ -225,6 +227,7 @@
     grid-row: 3;
     align-self: end;
     justify-self: end;
+    max-width: 100%;
     width: rem(112);
     height: rem(29);
     padding: 0;

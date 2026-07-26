@@ -32,7 +32,8 @@ Sections are HTML partials assembled by Vite. Styles load from `index.html`; int
 ## Approved deviations
 
 - **Font:** Montserrat instead of Poppins — approved (web Poppins lacks Cyrillic; Montserrat is the closest available match).
-- **Language dropdown (РУС / ENG):** present and interactive as in the mockup; switching language does not translate the page (approved for this assignment).
+- **Language dropdown (РУС / ENG):** UI as in the mockup. Full page translate (my-portfolio CSS dual-lang pattern) — **next phase**, not in this commit.
+- **Currency dropdown (BYN / RUB / EUR):** UI only until currency conversion is implemented in the next phase.
 - **Accent contrast:** Figma gold `#f2b124` kept 1:1 for buttons, header controls, review city, etc. Lighthouse may flag WCAG contrast; pixel match to the mockup takes priority for this assignment.
 
 ## Run locally
@@ -71,7 +72,7 @@ Checked against:
 
 - Accent / button / header / city colors — stay as in Figma (`#f2b124`)
 - No `robots.txt` — not required for this static landing
-- Language dropdown does not translate the page yet (enhancement candidate)
+- Language dropdown does not translate the page yet — next: i18n + currency (see PROJECT-AUDIT §0 / my-portfolio pattern)
 
 ### Mobile
 
