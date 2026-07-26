@@ -79,6 +79,14 @@
   width: 100%;
 }
 
+.schedule-form__control--date {
+  display: flex;
+  align-items: center;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background-color: $color-white;
+}
+
 .schedule-form__input,
 .schedule-form__select {
   width: 100%;
@@ -100,7 +108,12 @@
 }
 
 .schedule-form__control--date .schedule-form__input {
-  padding-inline-end: rem(35);
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-inline-end: rem(4);
+  border: none;
+  border-radius: $radius-sm;
+  background: transparent;
 }
 
 .schedule-form__select {
@@ -114,12 +127,15 @@
 }
 
 .schedule-form__icon {
-  position: absolute;
-  inset-block-start: 50%;
-  inset-inline-end: rem(12);
+  position: static;
   display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: rem(24);
+  height: rem(24);
+  margin-inline-end: rem(8);
   color: $color-text-muted;
-  transform: translateY(-50%);
 
   @include focus-visible;
 }

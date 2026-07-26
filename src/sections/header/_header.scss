@@ -20,10 +20,15 @@
 }
 
 .header__logo {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   width: rem(50);
   height: rem(40);
+  margin-inline-end: rem(12);
 
   @include focus-visible;
 }
@@ -43,6 +48,10 @@
   min-width: 0;
 
   @include respond-to(desktop) {
+    gap: rem(24);
+  }
+
+  @media (min-width: rem(1280)) {
     gap: rem(50);
   }
 }
@@ -53,10 +62,15 @@
   gap: rem(20);
 
   @include respond-to(desktop) {
+    gap: rem(24);
+  }
+
+  @media (min-width: rem(1280)) {
     gap: rem(50);
   }
 
   .dropdown__trigger {
+    min-height: rem(24);
     font-size: $font-size-14;
     font-weight: $font-weight-semibold;
     line-height: $line-height-base;
@@ -144,6 +158,8 @@
 .nav__link {
   display: inline-flex;
   align-items: center;
+  min-height: rem(24);
+  padding-block: rem(2);
   font-size: $font-size-14;
   font-weight: $font-weight-semibold;
   line-height: $line-height-base;

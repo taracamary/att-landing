@@ -1,1 +1,82 @@
 # att-landing
+
+Landing page for the excursion **«Тысячелетний Брест и Брестская крепость»** (Ekskursii.by) — markup test assignment for ATT.
+
+One-page layout: header, hero, schedule with search form, reviews slider, footer. Built from the Figma mockup with responsive breakpoints (mobile / tablet / desktop from 1024px).
+
+**Live:** https://att-landing-gray.vercel.app/
+
+## Stack
+
+- HTML5 (semantic markup, BEM)
+- SCSS + design tokens
+- Vanilla JavaScript (ES modules)
+- Vite
+- [Air Datepicker](https://air-datepicker.com/) — only third-party UI library (calendar)
+
+## Structure
+
+```
+src/
+  sections/     # header, hero, schedule, reviews, footer
+  styles/       # tokens, base, shared components
+  js/           # burger, dropdown, calendar, schedule-form, reviews-slider
+  assets/
+    images/     # hero + avatar (jpg/webp)
+    fonts/      # Montserrat woff2
+public/         # icons sprite, logos, favicon
+```
+
+Sections are HTML partials assembled by Vite. Styles load from `index.html`; interactivity lives in small native JS modules.
+
+## Approved deviations
+
+- **Font:** Montserrat instead of Poppins — approved (web Poppins lacks Cyrillic; Montserrat is the closest available match).
+- **Language dropdown (РУС / ENG):** present and interactive as in the mockup; switching language does not translate the page (approved for this assignment).
+- **Accent contrast:** Figma gold `#f2b124` kept 1:1 for buttons, header controls, review city, etc. Lighthouse may flag WCAG contrast; pixel match to the mockup takes priority for this assignment.
+
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+Open the URL shown in the terminal (usually `http://localhost:5173`).
+
+```bash
+npm run build    # production build → dist/
+npm run preview  # preview the production build
+```
+
+## Quality checks
+
+Checked against:
+
+1. **Lighthouse Desktop** + **Lighthouse Mobile**
+2. **[W3C Markup Validator](https://validator.w3.org/nu/)** (Nu Html Checker)
+
+### Done this iteration
+
+- **SEO:** `<meta name="description">` in `src/index.html`
+- **Media:** hero and review avatars via `<picture>` — WebP (`source`) + JPG fallback (`img`); files in `src/assets/images/`
+- **Accessibility (non-visual):** reviews slides without invalid `role="group"`; review author as `<h3>`; hit-area tweaks where layout allows
+- **Picture CSS:** BEM classes (`hero__picture`, `review-card__picture`) with `display: contents` — no global tag styles for `picture`
+
+### Intentionally not changed for pixel match
+
+- Accent / button / header / city colors — stay as in Figma (`#f2b124`)
+- No `robots.txt` — not required for this static landing
+
+### Next (planned)
+
+- W3C info: remove trailing slashes on void elements
+- SCSS: nest section styles with `&` (BEM nesting)
+
+### Mobile
+
+![Lighthouse Mobile](./docs/lighthouse-mobile.png)
+
+### Desktop
+
+![Lighthouse Desktop](./docs/lighthouse-desktop.png)
