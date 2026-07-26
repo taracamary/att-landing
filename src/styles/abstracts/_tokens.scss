@@ -31,6 +31,7 @@ $letter-spacing: 0;
 // Design styling
 $shadow-card: 0 0 rem(5) rgba(0, 0, 0, 0.15);
 $shadow-form: 0 rem(6) rem(20) rgba(0, 0, 0, 0.1);
+$shadow-dropdown: 0 rem(2) rem(6) rgba(0, 0, 0, 0.25);
 $transition-base: 200ms ease;
 
 // Media breakpoint
@@ -52,4 +53,5 @@ $icon-size-sm: rem(18);
 $icon-size-lg: rem(35);
 
 // Z-index
+$z-header: 100;
 $z-dropdown: 200;

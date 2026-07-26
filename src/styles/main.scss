@@ -3,10 +3,6 @@
 @use 'base/typography';
 @use 'base/globals';
 
-@use 'abstracts/tokens';
-@use 'abstracts/functions';
-@use 'abstracts/mixins';
-
 @use 'components/button';
 @use 'components/dropdown';
 @use 'components/datepicker';

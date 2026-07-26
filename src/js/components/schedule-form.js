@@ -8,10 +8,10 @@ if (form) {
       return;
     }
 
-    dropdown.querySelectorAll('.dropdown__option').forEach((option) => {
-      option.addEventListener('click', () => {
-        hidden.value = option.textContent.trim();
-      });
+    dropdown.addEventListener('dropdown:change', (event) => {
+      const { option } = event.detail;
+
+      hidden.value = option?.textContent.trim() || event.detail.value;
     });
   });
 

@@ -6,6 +6,20 @@ The page brings together the program, date search, schedule cards with booking, 
 
 Some of the logic and JavaScript was built with AI tools
 
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+Open the URL shown in the terminal (usually `http://localhost:5173`).
+
+```bash
+npm run build    # production build → dist/
+npm run preview  # preview the production build
+```
+
 ## Links
 
 - **Live demo:** https://att-landing-gray.vercel.app/
@@ -40,17 +54,3 @@ Checked with **Lighthouse** (Desktop / Mobile) and the **[W3C Markup Validator](
 - Bilingual UI (RUS / ENG) and currency switch (BYN / RUB / EUR) without i18n libraries
 - Responsive: mobile → tablet → desktop
 - Accessibility: semantic HTML, focus-visible, aria for custom controls and the carousel
-
-## Run locally
-
-```bash
-npm install
-npm run dev
-```
-
-Open the URL shown in the terminal (usually `http://localhost:5173`).
-
-```bash
-npm run build    # production build → dist/
-npm run preview  # preview the production build
-```

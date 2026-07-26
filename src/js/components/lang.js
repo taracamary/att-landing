@@ -110,8 +110,6 @@ export const setupLanguage = () => {
       setLanguage(value);
     }
   });
-
-  window.addEventListener('att:languagechange', localizeAttributes);
 };
 
 initLanguage();

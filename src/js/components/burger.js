@@ -44,6 +44,16 @@ if (header && burger && mobileNav) {
     setOpen(isOpen);
   });
 
+  mobileNav.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href^="#"]');
+
+    if (!link || !mobileNav.contains(link)) {
+      return;
+    }
+
+    setOpen(false);
+  });
+
   window.addEventListener('header:close-mobile-nav', () => {
     if (burger.getAttribute('aria-expanded') === 'true') {
       setOpen(false);
