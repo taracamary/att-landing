@@ -34,6 +34,11 @@
     overflow: hidden;
     margin: rem(-5);
     padding: rem(5);
+    touch-action: pan-y;
+
+    @include respond-to(desktop) {
+      touch-action: auto;
+    }
   }
 
   &__track {
@@ -70,8 +75,8 @@
 
   &__icon {
     display: block;
-    width: rem(22);
-    height: rem(22);
+    width: rem(19);
+    height: rem(13);
 
     &--prev {
       transform: rotate(90deg);
@@ -232,13 +237,13 @@
       overflow: visible;
     }
 
-    .review-card--expanded & {
-      max-height: rem(420);
-    }
-
     @media (prefers-reduced-motion: reduce) {
       transition: none;
     }
+  }
+
+  &--expanded &__text {
+    max-height: rem(420);
   }
 
   &__toggle {

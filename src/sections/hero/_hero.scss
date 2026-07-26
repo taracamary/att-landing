@@ -44,6 +44,7 @@
 
   &__overlay {
     z-index: 1;
+    pointer-events: none;
     background: linear-gradient(
       to left,
       rgba(217, 217, 217, 0) 0%,
@@ -141,19 +142,17 @@
     &:nth-child(3) {
       top: rem(16);
     }
-  }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .hero__chevron {
-    animation: hero-scroll-pulse 1.2s ease-in-out infinite;
+    @media (prefers-reduced-motion: no-preference) {
+      animation: hero-scroll-pulse 1.2s ease-in-out infinite;
 
-    &:nth-child(2) {
-      animation-delay: 0.4s;
-    }
+      &:nth-child(2) {
+        animation-delay: 0.4s;
+      }
 
-    &:nth-child(3) {
-      animation-delay: 0.8s;
+      &:nth-child(3) {
+        animation-delay: 0.8s;
+      }
     }
   }
 }

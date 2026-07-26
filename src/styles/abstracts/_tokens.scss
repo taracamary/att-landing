@@ -9,7 +9,6 @@ $color-black: #000000;
 $color-text-muted: #727272;
 $color-placeholder: #b9b9b9;
 $color-border: #d9d9d9;
-$border-accent: #f2b124;
 
 // Fonts
 $font-family-base: 'Montserrat', 'Arial', sans-serif;
@@ -47,6 +46,7 @@ $container-padding-mobile: rem(16);
 // Borders
 $radius-sm: rem(3);
 $border-width-cta: rem(2);
+$border-accent: $color-accent;
 
 // Icons
 $icon-size-sm: rem(18);

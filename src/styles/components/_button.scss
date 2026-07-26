@@ -3,6 +3,8 @@
 @use '../abstracts/mixins' as *;
 
 .button {
+  @include focus-visible;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -15,8 +17,6 @@
     background-color $transition-base,
     border-color $transition-base,
     color $transition-base;
-
-  @include focus-visible;
 
   &--outline {
     padding: rem(3) rem(6);

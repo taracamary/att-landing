@@ -3,7 +3,8 @@
 @use '../../styles/abstracts/mixins' as *;
 
 .header {
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: $z-header;
   background-color: $color-brand;
   color: $color-white;
@@ -100,26 +101,24 @@
     @include respond-to(desktop) {
       display: none;
     }
+  }
 
-    &[aria-expanded='true'] {
-      .header__bar {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        margin-top: -1px;
-      }
+  &__burger[aria-expanded='true'] &__bar {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -1px;
 
-      .header__bar:nth-child(1) {
-        transform: rotate(45deg);
-      }
+    &:nth-child(1) {
+      transform: rotate(45deg);
+    }
 
-      .header__bar:nth-child(2) {
-        opacity: 0;
-      }
+    &:nth-child(2) {
+      opacity: 0;
+    }
 
-      .header__bar:nth-child(3) {
-        transform: rotate(-45deg);
-      }
+    &:nth-child(3) {
+      transform: rotate(-45deg);
     }
   }
 
@@ -144,15 +143,6 @@
 
     @media (prefers-reduced-motion: reduce) {
       transition: none;
-    }
-  }
-
-  &--expanded {
-    .nav--mobile {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
     }
   }
 }
@@ -186,10 +176,12 @@
 
     @include respond-to(desktop) {
       display: contents;
+    }
+  }
 
-      .nav__list {
-        display: contents;
-      }
+  &--desktop &__list {
+    @include respond-to(desktop) {
+      display: contents;
     }
   }
 
@@ -212,15 +204,22 @@
       transition: none;
     }
 
-    .nav__list {
-      flex-direction: column;
-      gap: rem(13);
-      padding-block: rem(15) rem(20);
-      padding-inline: $container-padding-mobile;
+    .header--expanded & {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
 
     @include respond-to(desktop) {
       display: none;
     }
+  }
+
+  &--mobile &__list {
+    flex-direction: column;
+    gap: rem(13);
+    padding-block: rem(15) rem(20);
+    padding-inline: $container-padding-mobile;
   }
 }

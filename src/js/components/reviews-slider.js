@@ -110,6 +110,35 @@ if (slider) {
     update();
   });
 
+  const viewport = slider.querySelector('.reviews-slider__viewport');
+  let startX = null;
+
+  viewport?.addEventListener('pointerdown', (event) => {
+    if (desktopMq.matches || event.target.closest('button, a')) {
+      startX = null;
+      return;
+    }
+
+    startX = event.clientX;
+  });
+
+  viewport?.addEventListener('pointerup', (event) => {
+    if (desktopMq.matches || startX == null) {
+      startX = null;
+      return;
+    }
+
+    const dx = event.clientX - startX;
+    startX = null;
+
+    if (Math.abs(dx) < 40) {
+      return;
+    }
+
+    index += dx < 0 ? 1 : -1;
+    update();
+  });
+
   slider.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') {
       event.preventDefault();

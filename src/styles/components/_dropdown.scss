@@ -6,12 +6,12 @@
   position: relative;
 
   &__trigger {
+    @include focus-visible;
+
     display: inline-flex;
     align-items: center;
     gap: rem(6);
     transition: color $transition-base;
-
-    @include focus-visible;
   }
 
   &__icon {
@@ -28,11 +28,9 @@
     box-shadow: $shadow-dropdown;
   }
 
-  &--open &__panel {
-    display: block;
-  }
-
   &__option {
+    @include focus-visible;
+
     width: 100%;
     padding-block: rem(4);
     padding-inline: rem(4);
@@ -48,8 +46,6 @@
       background-color $transition-base,
       color $transition-base;
 
-    @include focus-visible;
-
     @include hover {
       background-color: $color-brand;
       color: $color-white;
@@ -61,107 +57,109 @@
     }
   }
 
-  &--currency,
-  &--language {
-    .dropdown__trigger {
-      min-width: rem(52);
-      justify-content: flex-start;
-      font-variant-numeric: tabular-nums;
-    }
+  &__phone {
+    @include focus-visible;
 
-    .dropdown__panel {
-      inset-inline-start: 0;
-      min-width: rem(45);
-    }
+    display: inline-flex;
+    align-items: center;
+    gap: rem(4);
+    font-size: $font-size-14;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-base;
+    color: $color-brand;
 
-    .dropdown__icon {
-      width: rem(11);
-      height: rem(6);
+    @include hover {
+      text-decoration: underline;
     }
+  }
+
+  &__messengers {
+    display: flex;
+    gap: rem(10);
+    margin-block-start: rem(10);
+  }
+
+  &__messenger {
+    @include focus-visible;
+
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  &__glyph {
+    flex-shrink: 0;
+    width: rem(25);
+    height: rem(25);
+    color: $color-brand;
+    fill: currentColor;
+  }
+
+  &__mark {
+    flex-shrink: 0;
+    width: $icon-size-sm;
+    height: $icon-size-sm;
+    fill: currentColor;
+  }
+
+  &--open &__panel {
+    display: block;
+  }
+
+  &--currency &__trigger,
+  &--language &__trigger {
+    min-width: rem(52);
+    justify-content: flex-start;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &--currency &__panel,
+  &--language &__panel {
+    inset-inline-start: 0;
+    min-width: rem(45);
+  }
+
+  &--currency &__icon,
+  &--language &__icon {
+    width: rem(11);
+    height: rem(6);
   }
 
   &--field {
     width: 100%;
-
-    .dropdown__trigger {
-      width: 100%;
-    }
-
-    .dropdown__panel {
-      inset-inline: 0;
-      inset-block-start: calc(100% + rem(4));
-      max-height: rem(200);
-      overflow-y: auto;
-      padding: rem(4);
-    }
-
-    .dropdown__icon {
-      width: rem(11);
-      height: rem(6);
-      color: $color-text-primary;
-    }
-
-    .dropdown__option {
-      font-size: $font-size-16;
-      font-weight: $font-weight-regular;
-    }
   }
 
-  &--contacts {
-    .dropdown__panel {
-      inset-inline-start: 0;
-      width: rem(171);
-      min-height: rem(68);
-      padding: rem(6);
-    }
+  &--field &__trigger {
+    width: 100%;
+  }
 
-    .dropdown__icon {
-      width: rem(11);
-      height: rem(6);
-    }
+  &--field &__panel {
+    inset-inline: 0;
+    inset-block-start: calc(100% + rem(4));
+    max-height: rem(200);
+    overflow-y: auto;
+    padding: rem(4);
+  }
 
-    .dropdown__phone {
-      display: inline-flex;
-      align-items: center;
-      gap: rem(4);
-      font-size: $font-size-14;
-      font-weight: $font-weight-regular;
-      line-height: $line-height-base;
-      color: $color-brand;
+  &--field &__icon {
+    width: rem(13);
+    height: rem(8);
+    color: $color-text-primary;
+  }
 
-      @include hover {
-        text-decoration: underline;
-      }
+  &--field &__option {
+    font-size: $font-size-16;
+    font-weight: $font-weight-regular;
+  }
 
-      @include focus-visible;
-    }
+  &--contacts &__panel {
+    inset-inline-start: 0;
+    width: rem(171);
+    min-height: rem(68);
+    padding: rem(6);
+  }
 
-    .dropdown__messengers {
-      display: flex;
-      gap: rem(10);
-      margin-block-start: rem(10);
-    }
-
-    .dropdown__messenger {
-      display: flex;
-      flex-shrink: 0;
-
-      @include focus-visible;
-    }
-
-    .dropdown__glyph {
-      flex-shrink: 0;
-      width: rem(25);
-      height: rem(25);
-      color: $color-brand;
-      fill: currentColor;
-    }
-
-    .dropdown__mark {
-      flex-shrink: 0;
-      width: $icon-size-sm;
-      height: $icon-size-sm;
-      fill: currentColor;
-    }
+  &--contacts &__icon {
+    width: rem(11);
+    height: rem(6);
   }
 }
